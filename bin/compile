@@ -52,7 +52,8 @@ if [ ! -d "${CACHED_REDIS_DIR}" ]; then
 	echo "-----> Downloading and installing redis into slug"
 	rm -rf "${CACHE_DIR}"/redis_*
 	cd $REDIS_BUILD
-	curl -OLf "http://download.redis.io/releases/redis-$VERSION.tar.gz"
+  # This binaries are sourced from redis.io
+  curl -OLf "https://github.com/davidji99/heroku-buildpack-ci-redis/raw/main/redis-$VERSION.tar.gz"
 	tar zxvf "redis-$VERSION.tar.gz"
 	cd "redis-$VERSION"
 	make
